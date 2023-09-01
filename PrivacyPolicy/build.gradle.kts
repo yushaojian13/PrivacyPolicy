@@ -27,4 +27,5 @@ android {
 }
 
 dependencies {
+    compileOnly("androidx.fragment:fragment:1.5.7")
 }
