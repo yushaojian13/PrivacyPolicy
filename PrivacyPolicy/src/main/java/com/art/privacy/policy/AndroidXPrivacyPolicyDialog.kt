@@ -54,12 +54,12 @@ class AndroidXPrivacyPolicyDialog : DialogFragment() {
 
         fun show(activity: FragmentActivity, appName: String, privacyPolicyUrl: String) {
             try {
-                PrivacyPolicyDialog().apply {
+                AndroidXPrivacyPolicyDialog().apply {
                     arguments = Bundle().apply {
                         putString(KEY_APP_NAME, appName)
                         putString(KEY_PRIVACY_POLICY_URL, privacyPolicyUrl)
                     }
-                    show(activity.fragmentManager, "privacy_policy")
+                    show(activity.supportFragmentManager, "privacy_policy")
                 }
             } catch (ignore: Exception) {
             }
