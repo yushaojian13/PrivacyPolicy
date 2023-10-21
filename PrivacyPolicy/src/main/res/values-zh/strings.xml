@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="privacy_policy_title">隐私政策</string>
+    <string name="privacy_policy_message">%1$s非常尊重您的隐私，只会收集少量与个人信息无关的用户数据来提升您的体验</string>
+</resources>
