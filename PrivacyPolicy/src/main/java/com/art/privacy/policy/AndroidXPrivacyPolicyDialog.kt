@@ -27,7 +27,6 @@ class AndroidXPrivacyPolicyDialog : DialogFragment() {
             .setTitle(R.string.privacy_policy_title)
             .setMessage(getString(R.string.privacy_policy_message, appName))
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                setPrivacyPolicyPrompted(requireContext().applicationContext)
                 dismissAllowingStateLoss()
             }
             .setNegativeButton(R.string.privacy_policy_title) { _, _ ->
@@ -61,11 +60,13 @@ class AndroidXPrivacyPolicyDialog : DialogFragment() {
                     }
                     show(activity.supportFragmentManager, "privacy_policy")
                 }
+
+                setPrivacyPolicyPrompted(activity.applicationContext)
             } catch (ignore: Exception) {
             }
         }
 
-        private fun privacyPolicyPrompted(context: Context) = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(PRIVACY_POLICY_PROMPTED, false)
+        fun privacyPolicyPrompted(context: Context) = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(PRIVACY_POLICY_PROMPTED, false)
 
         private fun setPrivacyPolicyPrompted(context: Context) = PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(PRIVACY_POLICY_PROMPTED, true).apply()
 

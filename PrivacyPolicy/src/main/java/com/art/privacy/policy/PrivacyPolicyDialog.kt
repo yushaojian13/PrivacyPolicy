@@ -28,7 +28,6 @@ class PrivacyPolicyDialog : DialogFragment() {
             .setTitle(R.string.privacy_policy_title)
             .setMessage(getString(R.string.privacy_policy_message, appName))
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                setPrivacyPolicyPrompted(activity.applicationContext)
                 dismissAllowingStateLoss()
             }
             .setNegativeButton(R.string.privacy_policy_title) { _, _ ->
@@ -62,6 +61,8 @@ class PrivacyPolicyDialog : DialogFragment() {
                     }
                     show(activity.fragmentManager, "privacy_policy")
                 }
+
+                setPrivacyPolicyPrompted(activity.applicationContext)
             } catch (ignore: Exception) {
             }
         }
