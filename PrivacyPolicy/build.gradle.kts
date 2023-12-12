@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
+//apply(from = "${project.rootDir}/aar_copy.gradle.kts")
 
 android {
     namespace = "com.art.privacy.policy"
@@ -9,6 +10,7 @@ android {
 
     defaultConfig {
         minSdk = 21
+        setProperty("archivesBaseName", "PrivacyPolicy-v1.0.1")
     }
 
     buildTypes {
